@@ -30,3 +30,6 @@ classDiagram
   User "1" *-- "1" PaymentInfo
   User "1" *-- "N" Product
 ```
+## Observações:
+
+DTO's serão implementadas no futuro

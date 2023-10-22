@@ -27,7 +27,7 @@ public class UserServiceImpl implements CrudService<User> {
 
     @Override
     public User create(User user) {
-        if(user.getId() != null && userRepository.existsById(user.getId())){
+        if(userRepository.existsById(user.getId())){
             throw new IllegalArgumentException("This user already exists.");
         }
         return userRepository.save(user);
