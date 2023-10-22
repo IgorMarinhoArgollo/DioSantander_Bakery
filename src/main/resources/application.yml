@@ -1,8 +1,8 @@
 
 spring:
   datasource:
-    url: jdbc:h2:mem:padaria
-    username: padaria
+    url: jdbc:h2:mem:bakery
+    username: bakery
     password:
 
   jpa:
