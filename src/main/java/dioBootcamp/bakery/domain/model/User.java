@@ -22,8 +22,6 @@ public class User {
     private String password;
     @OneToOne(cascade = CascadeType.ALL)
     private PaymentInfo paymentInfo;
-    @OneToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-    private List<Product> products;
 
     public Long getId() {
         return id;
@@ -57,11 +55,4 @@ public class User {
         this.paymentInfo = paymentInfo;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
 }

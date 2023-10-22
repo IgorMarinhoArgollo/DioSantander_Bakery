@@ -30,9 +30,6 @@ public class UserServiceImpl implements CrudService<User> {
         if(user.getId() != null && userRepository.existsById(user.getId())){
             throw new IllegalArgumentException("This user already exists.");
         }
-        if(userRepository.existsByCardNumber(user.getPaymentInfo().getCardNumber())) {
-            throw new IllegalArgumentException("Card already exists on a user.");
-        }
         return userRepository.save(user);
     }
 
@@ -50,9 +47,10 @@ public class UserServiceImpl implements CrudService<User> {
     public User update(User user) {
         Optional<User> userOptional = userRepository.findById(user.getId());
         if (userOptional.isPresent()) {
-            User userToUpdate;
+            User userToUpdate = userOptional.get();
 
-            userToUpdate = user;
+            userToUpdate.setUserName(user.getUserName());
+            userToUpdate.setPassword(user.getPassword());
 
             userRepository.save(userToUpdate);
 

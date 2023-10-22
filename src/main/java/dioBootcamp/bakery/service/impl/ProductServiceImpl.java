@@ -7,7 +7,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class ProductServiceImpl implements CrudService<Product> {
     @Autowired
     private ProductRepository productRepository;
